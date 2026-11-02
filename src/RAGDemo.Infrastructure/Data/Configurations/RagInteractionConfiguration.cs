@@ -67,7 +67,7 @@ public sealed class RagInteractionConfiguration : IEntityTypeConfiguration<RagIn
         var metricsConverter = new ValueConverter<IReadOnlyList<EvaluationMetric>, string>(
             metrics => JsonSerializer.Serialize(metrics, JsonSerializerOptions.Default),
             json => string.IsNullOrWhiteSpace(json)
-                ? Array.Empty<EvaluationMetric>()
+                ? new List<EvaluationMetric>()
                 : JsonSerializer.Deserialize<List<EvaluationMetric>>(json, JsonSerializerOptions.Default) ??
                   new List<EvaluationMetric>()
         );
@@ -79,6 +79,7 @@ public sealed class RagInteractionConfiguration : IEntityTypeConfiguration<RagIn
         );
 
         builder.Property(r => r.EvaluationMetrics)
+            .HasField("_evaluationMetrics")
             .HasConversion(metricsConverter, metricsComparer)
             .HasColumnType("jsonb")
             .IsRequired();
