@@ -1,12 +1,7 @@
 namespace RAGDemo.Domain.Exceptions;
 
-public sealed class DocumentNotFoundException : DomainException
+public sealed class DocumentNotFoundException(Guid documentId)
+    : DomainException($"Document with ID '{documentId}' was not found.")
 {
-    public Guid DocumentId { get; }
-
-    public DocumentNotFoundException(Guid documentId)
-        : base($"Document with ID '{documentId}' was not found.")
-    {
-        DocumentId = documentId;
-    }
+    public Guid DocumentId { get; } = documentId;
 }

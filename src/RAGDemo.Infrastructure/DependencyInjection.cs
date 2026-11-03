@@ -1,8 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Pgvector.EntityFrameworkCore;
-using RAGDemo.Infrastructure.Common;
+using RAGDemo.Domain.Interfaces;
 using RAGDemo.Infrastructure.Data;
 
 namespace RAGDemo.Infrastructure;
@@ -26,6 +25,9 @@ public static class DependencyInjection
         });
 
         services.AddScoped<IApplicationDbContext>(sp => sp.GetRequiredService<ApplicationDbContext>());
+        services.AddScoped<IDocumentRepository, DocumentRepository>();
+        services.AddScoped<IEvaluationRepository, EvaluationRepository>();
+        services.AddScoped<IVectorSearchRepository, VectorSearchRepository>();
 
         return services;
     }

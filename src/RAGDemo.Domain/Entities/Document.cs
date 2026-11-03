@@ -4,6 +4,8 @@ namespace RAGDemo.Domain.Entities;
 
 public sealed class Document
 {
+    private readonly List<DocumentChunk> _chunks = [];
+
     public Guid Id { get; init; } = Guid.NewGuid();
     public string Title { get; set; } = string.Empty;
     public string SourceUri { get; set; } = string.Empty;
@@ -14,7 +16,7 @@ public sealed class Document
     public string? ErrorMessage { get; set; }
     public DateTimeOffset CreatedAtUtc { get; init; } = DateTimeOffset.UtcNow;
     public DateTimeOffset? UpdatedAtUtc { get; set; }
-    public IReadOnlyList<DocumentChunk> Chunks { get; set; } = [];
+    public IReadOnlyList<DocumentChunk> Chunks => _chunks;
 
     public void MarkAsProcessing()
     {
