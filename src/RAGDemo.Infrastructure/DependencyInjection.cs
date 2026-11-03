@@ -27,6 +27,7 @@ public static class DependencyInjection
         services.AddScoped<IApplicationDbContext>(sp => sp.GetRequiredService<ApplicationDbContext>());
         services.AddScoped<IDocumentRepository, DocumentRepository>();
         services.AddScoped<IEvaluationRepository, EvaluationRepository>();
+        services.AddScoped<IVectorSearchRepository, VectorSearchRepository>();
 
         return services;
     }

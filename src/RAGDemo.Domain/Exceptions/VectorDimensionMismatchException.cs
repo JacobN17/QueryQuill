@@ -1,14 +1,8 @@
 namespace RAGDemo.Domain.Exceptions;
 
-public sealed class VectorDimensionMismatchException : DomainException
+public sealed class VectorDimensionMismatchException(int expectedDimension, int actualDimension)
+    : DomainException($"Vector dimension mismatch: expected {expectedDimension}, but got {actualDimension}.")
 {
-    public int ExpectedDimension { get; }
-    public int ActualDimension { get; }
-
-    public VectorDimensionMismatchException(int expectedDimension, int actualDimension)
-        : base($"Vector dimension mismatch: expected {expectedDimension}, but got {actualDimension}.")
-    {
-        ExpectedDimension = expectedDimension;
-        ActualDimension = actualDimension;
-    }
+    public int ExpectedDimension { get; } = expectedDimension;
+    public int ActualDimension { get; } = actualDimension;
 }
