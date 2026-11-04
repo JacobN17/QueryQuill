@@ -1,4 +1,4 @@
-﻿# RAGDemo
+# QueryQuill
 
 A multi-layer Retrieval-Augmented Generation (RAG) engine built in .NET 10 following Clean Architecture principles.
 
@@ -33,8 +33,8 @@ This project uses a zero-configuration "clone-and-run" local workflow. All requi
 
 #### 1. Clone the Repository
 ```bash
-git clone https://github.com/JacobN17/RAGDemo
-cd RAGDemo
+git clone https://github.com/JacobN17/QueryQuill
+cd QueryQuill
 ```
 
 #### 2. Start the PostgreSQL Container
@@ -60,7 +60,7 @@ dotnet tool restore
 Migrations are automatically applied on startup in Development mode (Step 5). If you prefer to apply them manually via CLI:
 
 ```bash
-dotnet ef database update --project src/RAGDemo.Infrastructure --startup-project src/RAGDemo.Api
+dotnet ef database update --project src/QueryQuill.Infrastructure --startup-project src/QueryQuill.Api
 
 ```
 
@@ -69,7 +69,7 @@ dotnet ef database update --project src/RAGDemo.Infrastructure --startup-project
 Start the Web API host:
 
 ```bash
-dotnet run --project src/RAGDemo.Api --launch-profile https
+dotnet run --project src/QueryQuill.Api --launch-profile https
 
 ```
 
