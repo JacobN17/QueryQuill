@@ -12,13 +12,13 @@ public class DocumentTests
         var doc = new Document
         {
             Title = "Architecture Overview",
-            SourceUri = "https://docs.ragdemo.io/arch.md"
+            SourceUri = "https://docs.queryquill.io/arch.md"
         };
 
         Assert.NotEqual(Guid.Empty, doc.Id);
         Assert.Equal(DocumentStatus.Pending, doc.Status);
         Assert.Equal("Architecture Overview", doc.Title);
-        Assert.Equal("https://docs.ragdemo.io/arch.md", doc.SourceUri);
+        Assert.Equal("https://docs.queryquill.io/arch.md", doc.SourceUri);
         Assert.Equal("text/plain", doc.ContentType);
         Assert.Equal(0, doc.ChunkCount);
         Assert.Equal(0, doc.TotalTokens);
