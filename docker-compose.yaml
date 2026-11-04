@@ -19,5 +19,20 @@ services:
       timeout: 5s
       retries: 5
 
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: queryquill_api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__Database=Host=postgres-vector;Port=5432;Database=queryquilldb;Username=user;Password=password
+    ports:
+      - "8080:8080"
+    depends_on:
+      postgres-vector:
+        condition: service_healthy
+    restart: on-failure
+
 volumes:
   pgvector_data:

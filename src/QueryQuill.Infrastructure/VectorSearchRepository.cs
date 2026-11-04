@@ -86,7 +86,7 @@ public sealed class VectorSearchRepository(ApplicationDbContext dbContext) : IVe
         {
             return [];
         }
-        
+
         var query = dbContext.DocumentChunks
             .AsNoTracking();
 

@@ -1,0 +1,9 @@
+**/.git
+**/.github
+**/.vs
+**/.idea
+**/bin
+**/obj
+**/TestResults
+**/*.user
+**/*.DotSettings.user
